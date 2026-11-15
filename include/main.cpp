@@ -12,6 +12,7 @@ using namespace cv;
 int main() {
     Detector detector;
     string cube_video_path = "/home/croissant/Homework_2/cube.mp4";
+
     // detector.detect(cube_video_path);
 
     VideoCapture cap(0); // 打开默认摄像头 (0)
@@ -21,9 +22,7 @@ int main() {
             cap >> frame;
             if (frame.empty()) break;
 
-            // 调用处理单帧图像的 detect 函数 (重载)
             detector.detect(frame);
-
             imshow("Apriltag Camera", frame);
             if (waitKey(30) == 27) break;
         }
